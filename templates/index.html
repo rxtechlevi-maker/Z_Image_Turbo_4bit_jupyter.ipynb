@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Turbo Web 控制台</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; background: #0f172a; color: #e2e8f0; }
+      .card { max-width: 780px; background: #1e293b; padding: 1.2rem; border-radius: 12px; }
+      input, button { width: 100%; margin-top: .6rem; padding: .6rem; border-radius: 8px; border: 1px solid #334155; }
+      button { background: #2563eb; color: white; cursor: pointer; }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+      #preview { margin-top: 1rem; max-width: 100%; border-radius: 8px; border: 1px solid #334155; }
+      .hint { color: #94a3b8; font-size: .9rem; }
+      code { color: #93c5fd; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>用 Web 觸發圖片輸出</h2>
+      <p class="hint">每次生成都會建立一個臨時工作頁面（job folder）。</p>
+      <form id="gen-form">
+        <label>Prompt</label>
+        <input id="prompt" name="prompt" placeholder="例如：賽博龐克城市夜景" required />
+        <div class="row">
+          <div>
+            <label>Width</label>
+            <input id="width" name="width" type="number" value="768" min="64" max="2048" />
+          </div>
+          <div>
+            <label>Height</label>
+            <input id="height" name="height" type="number" value="512" min="64" max="2048" />
+          </div>
+        </div>
+        <button type="submit">生成圖片</button>
+      </form>
+
+      <p id="status" class="hint"></p>
+      <img id="preview" alt="生成結果" hidden />
+      <p id="output-link" class="hint"></p>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
